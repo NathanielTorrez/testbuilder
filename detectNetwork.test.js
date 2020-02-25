@@ -187,13 +187,14 @@ describe('Maestro', function() {
   
   var numberAdder = '1234567';
   for (var length = 12; length <= 19; length++ ){
-    numberAdder += '0';
+    //numberAdder += '0';
     (function(length){
-it('has a prefix of 5018 and a length of ' + length,function(){
-    detectNetwork('5018'.concat(numberAdder)).should.equal('Maestro')
+      numberAdder += '0';
+it('has a prefix of 5018 and a length of ' + length ,function(){
+    detectNetwork('5018' + numberAdder).should.equal('Maestro')
   } );
   it('has a prefix of 5020 and a length of ' + length, function(){
-    detectNetwork('5020'.concat(numberAdder)).should.equal('Maestro')
+    detectNetwork('5020' + numberAdder).should.equal('Maestro')
   });
   it('has a prefix of 5038 and a length of ' + length,function(){
     detectNetwork('5038' + numberAdder).should.equal('Maestro')
