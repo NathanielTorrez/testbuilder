@@ -19,7 +19,7 @@ if ( ( cardNumber[0] === '3' && cardNumber[1] === '4' && cardNumber.length === 1
   return "American Express"
  }
  if ( cardNumber[0] === '4' && (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19)){
-  return "Visa"
+  
  }
  if (cardNumber[0] === '5' && cardNumber.length === 16 && ( cardNumber[1] === '1' || cardNumber[1] === '2' || cardNumber[1] === '3' || cardNumber[1] === '4' || cardNumber[1] === '5' ) ) {
  	return "MasterCard"
@@ -107,5 +107,6 @@ function isSwitchprefix2(cardNumber) {
      ( cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19 )) {
     return "Switch"
   }
+  return "Visa"
 }
 

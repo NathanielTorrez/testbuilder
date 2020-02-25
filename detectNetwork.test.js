@@ -160,49 +160,42 @@ for (var prefix = 644; prefix <= 649; prefix++) {
     });  })(prefix)}
 
 });
-
-// describe('Maestro', function() {
-//   // Write full test coverage for the Maestro card
-//   var should = chai.should();
-  
-
-// it('has a prefix of 5018 and a length of 16',function(){
-//     detectNetwork('5018123456781234').should.equal('Maestro')
-//   } );
-//   it('has a prefix of 5020 and a length of 19', function(){
-//     detectNetwork('5020123456781234567').should.equal('Maestro')
-//   });
-//   it('has a prefix of 5038 and a length of 17',function(){
-//     detectNetwork('50381234567812345').should.equal('Maestro')
-//   } );
-//   it('has a prefix of 6304 and a length of 18', function(){
-//     detectNetwork('630412345678123456').should.equal('Maestro')
-//   });
-// });
-
-
 describe('Maestro', function() {
-  // Write full test coverage for the Maestro card
+  // Tests without a function will be marked as "pending" and not run
+  // Implement these tests (and others) and make them pass!
   var should = chai.should();
-  
-  var numberAdder = '1234567';
-  for (var length = 12; length <= 19; length++ ){
-    //numberAdder += '0';
-    (function(length){
-      numberAdder += '0';
-it('has a prefix of 5018 and a length of ' + length ,function(){
-    detectNetwork('5018' + numberAdder).should.equal('Maestro')
-  } );
-  it('has a prefix of 5020 and a length of ' + length, function(){
-    detectNetwork('5020' + numberAdder).should.equal('Maestro')
-  });
-  it('has a prefix of 5038 and a length of ' + length,function(){
-    detectNetwork('5038' + numberAdder).should.equal('Maestro')
-  } );
-  it('has a prefix of 6304 and a length of ' + length, function(){
-    detectNetwork('6304' + numberAdder).should.equal('Maestro')
-  }); })(length)}
+
+
+    var prefixArray = ['5018','5020','5038', '6304'];
+for (var prefix = 0; prefix <= prefixArray.length - 1; prefix++) {  
+  (function(prefix) {    
+    it('has a prefix of ' + prefixArray[prefix] + ' and a length of 12', function() {
+      detectNetwork(prefixArray[prefix] + '00000000').should.equal('Maestro')
+    });
+    it('has a prefix of ' + prefixArray[prefix] + ' and a length of 13', function() {
+      detectNetwork(prefixArray[prefix] + '000000000').should.equal('Maestro')
+    });
+    it('has a prefix of ' + prefixArray[prefix] + ' and a length of 14', function() {
+      detectNetwork(prefixArray[prefix] + '0000000000').should.equal('Maestro')
+    });
+    it('has a prefix of ' + prefixArray[prefix] + ' and a length of 15', function() {
+      detectNetwork(prefixArray[prefix] + '00000000000').should.equal('Maestro')
+    });    
+    it('has a prefix of ' + prefixArray[prefix] + ' and a length of 16', function() {
+      detectNetwork(prefixArray[prefix] + '000000000000').should.equal('Maestro')
+    });
+    it('has a prefix of ' + prefixArray[prefix] + ' and a length of 17', function() {
+      detectNetwork(prefixArray[prefix] + '0000000000000').should.equal('Maestro')
+    });
+    it('has a prefix of ' + prefixArray[prefix] + ' and a length of 18', function() {
+      detectNetwork(prefixArray[prefix] + '00000000000000').should.equal('Maestro')
+    });
+    it('has a prefix of ' + prefixArray[prefix] + ' and a length of 19', function() {
+      detectNetwork(prefixArray[prefix] + '000000000000000').should.equal('Maestro')
+    });  })(prefix)}
+
 });
+
 
 describe('China UnionPay', function() {
  
@@ -259,6 +252,40 @@ for (var prefix = 622125; prefix <= 622925; prefix++) {
     });  })(prefix)}
 
 });
+
+describe('Switch', function(){
+
+var prefixArray1 = ['4903', '4905' , '4911' , '4936', '6333', '6759'] ;
+var prefixArray2 = ['564182','633110'];
+
+for (var prefix = 0; prefix <= prefixArray1.length - 1; prefix++) {  
+  (function(prefix) {    
+    it('has a prefix of ' + prefixArray1[prefix] + ' and a length of 16', function() {
+      detectNetwork(prefixArray1[prefix] + '000000000000').should.equal('Switch')
+    });
+    it('has a prefix of ' + prefixArray1[prefix] + ' and a length of 18', function() {
+      detectNetwork(prefixArray1[prefix] + '00000000000000').should.equal('Switch')
+    });
+    it('has a prefix of ' + prefixArray1[prefix] + ' and a length of 19', function() {
+      detectNetwork(prefixArray1[prefix] + '000000000000000').should.equal('Switch')
+    });
+      })(prefix)}
+
+      for (var prefix = 0; prefix <= prefixArray2.length - 1; prefix++) {  
+  (function(prefix) {    
+    it('has a prefix of ' + prefixArray2[prefix] + ' and a length of 16', function() {
+      detectNetwork(prefixArray2[prefix] + '0000000000').should.equal('Switch')
+    });
+    it('has a prefix of ' + prefixArray2[prefix] + ' and a length of 18', function() {
+      detectNetwork(prefixArray2[prefix] + '000000000000').should.equal('Switch')
+    });
+    it('has a prefix of ' + prefixArray2[prefix] + ' and a length of 19', function() {
+      detectNetwork(prefixArray2[prefix] + '0000000000000').should.equal('Switch')
+    });
+      })(prefix)}
+
+
+})
 
 
 
