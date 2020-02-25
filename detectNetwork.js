@@ -15,7 +15,7 @@ var detectNetwork = function(cardNumber) {
 if ( ( cardNumber[0] === '3' && cardNumber[1] === '9' && cardNumber.length === 14) || (cardNumber[0] === '3' && cardNumber[1] === '8' && cardNumber.length === 14)){
   return "Diner's Club"
 }
-if ( ( cardNumber[0] === '3' && cardNumber[1] === '4' && cardNumber.length === 15) || (cardNumber[0] === '3' && cardNumber[1] === '7' && cardNumber.length === 15)){
+if ( ( cardNumber[0] === '3' && cardNumber[1] === '4' && cardNumber.length === 15) || ( cardNumber[0] === '3' && cardNumber[1] === '7' && cardNumber.length === 15 ) ) {
   return "American Express"
  }
  if ( cardNumber[0] === '4' && (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19)){
@@ -24,9 +24,7 @@ if ( ( cardNumber[0] === '3' && cardNumber[1] === '4' && cardNumber.length === 1
  if (cardNumber[0] === '5' && cardNumber.length === 16 && ( cardNumber[1] === '1' || cardNumber[1] === '2' || cardNumber[1] === '3' || cardNumber[1] === '4' || cardNumber[1] === '5' ) ) {
  	return "MasterCard"
   }
- //  if (cardNumber[0] === '6' && cardNumber.length === 16 && ( cardNumber[1] === '1' || cardNumber[1] === '2' || cardNumber[1] === '3' || cardNumber[1] === '4' || cardNumber[1] === '5' ) ) {
- // 	return "MasterCard"
- // }
+
  if ( cardNumber[0] === '6' && ( cardNumber.length === 16 || cardNumber.length === 19  ) && ((cardNumber[1] === '0' && cardNumber[2] === '1' && cardNumber[3] === '1') || (cardNumber[1] === '4' && 
  	( cardNumber[2] === '4' || cardNumber[2] === '5' || cardNumber[2] === '6' || cardNumber[2] === '7' || cardNumber[2] === '8'
  || cardNumber[2] === '9')) || cardNumber[1] === '5' ) ) { 
@@ -37,6 +35,7 @@ if ( ( cardNumber.length === 12 || cardNumber.length === 13 || cardNumber.length
   && ( cardNumber[3] === '0' || cardNumber[3] === '8' || cardNumber[3] === '4' )) {
 	return 'Maestro'
 }
+
 function isChinaUnionPay1(cardNumber) {
   var prefixRange = cardNumber.substring(0,6);
 
@@ -52,6 +51,7 @@ function isChinaUnionPay1(cardNumber) {
    
    return false
 }
+
 function isChinaUnionPay2(cardNumber) {
   var prefixRange = cardNumber.substring(0,3);
 
@@ -67,6 +67,7 @@ function isChinaUnionPay2(cardNumber) {
    
    return false
 }
+
 function isChinaUnionPay3(cardNumber) {
   var prefixRange = cardNumber.substring(0,4);
 
@@ -82,11 +83,13 @@ function isChinaUnionPay3(cardNumber) {
    
    return false
 }
+
 if ( ( isChinaUnionPay1(cardNumber) === true || isChinaUnionPay2(cardNumber) === true || isChinaUnionPay3(cardNumber) === true ) &&  
 	( cardNumber.length === 16 || cardNumber.length === 17 || cardNumber.length === 18 || cardNumber.length === 19 ) ) {
 	return "China UnionPay"
 }
-function detectNetwork(cardNumber){
+
+
 
   function isSwitchprefix1(cardNumber) {
   var prefix = cardNumber.substring(0,4);
@@ -106,4 +109,3 @@ function isSwitchprefix2(cardNumber) {
   }
 }
 
-}
